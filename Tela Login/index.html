@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container" role="main">
+    <aside class="card" aria-labelledby="login-title">
+      <h1 id="login-title", style="text-align: center;">Logo</h1>
+      <h2 id="login-title">Entrar</h2>
+      <form id="loginForm" novalidate>
+        <div>
+          <label for="email">Email</label>
+          <div class="input">
+            <input id="email" name="email" type="email" placeholder="seu@email.com" required>
+          </div>
+          <div id="emailError" class="error" style="display:none"></div>
+        </div>
+
+        <div>
+          <label for="password">Senha</label>
+          <div class="input" style="gap:8px;">
+            <input id="password" name="password" type="password" placeholder="Sua senha" required>
+          </div>
+          <div id="passwordError" class="error" style="display:none"></div>
+        </div>
+
+        <div class="row">
+          <a href="#" class="helper"><strong>Esqueci a senha</strong></a>
+        </div>
+
+        <button id="submitBtn" class="btn" type="submit">Entrar</button>
+        
+      </form>
+      <p class="footer">Não tem conta? <a href="#" style="color: var(--color-primary); font-weight:600">Cadastre-se</a>
+      </p>
+    </aside>
+  </main>
+
+  <defer script src="script.js">
+    </script>
+
+</body>
+
+</html>
