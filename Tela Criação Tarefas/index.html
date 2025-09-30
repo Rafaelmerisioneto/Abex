@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Nova Tarefa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Barra Lateral -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-project-diagram"></i> Projects</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active">
+                    <a href="#"><i class="fas fa-tasks"></i> Seus Projetos</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#"><i class="fas fa-search"></i> Busca</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#"><i class="fas fa-users"></i> Equipe</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                </li>
+                <li class="menu-item">
+                    <a href="../Tela Login/index.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Cabeçalho Superior -->
+            <header class="top-bar">
+                <div class="user-profile">
+                    <img id="profile-pic" src="https://via.placeholder.com/50" alt="Foto de Perfil">
+                    <div class="user-info">
+                        <span id="user-name">Nome do Usuário</span>
+                        <a href="../Tela Cadastro/index.html" class="edit-profile-link">Editar Cadastro</a>
+                    </div>
+                    <input type="file" id="profile-pic-upload" accept="image/*">
+                </div>
+            </header>
+
+            <!-- Kanban de Tarefas -->
+            <section class="projects-section">
+                <div class="projects-header">
+                    <h2>Kanban de Tarefas</h2>
+                    <button class="new-project-btn" onclick="openModal()"><i class="fas fa-plus"></i> Nova Tarefa</button>
+                    <button class="delete-task-btn" onclick="openDeleteTaskModal()"><i class="fas fa-trash"></i> Excluir Tarefa</button>
+                </div>
+                <div class="kanban-board">
+                    <div class="column" id="todo">
+                        <h2>A Fazer</h2>
+                        <div class="dropzone" data-status="todo"></div>
+                    </div>
+                    <div class="column" id="doing">
+                        <h2>Em Progresso</h2>
+                        <div class="dropzone" data-status="doing"></div>
+                    </div>
+                    <div class="column" id="done">
+                        <h2>Concluído</h2>
+                        <div class="dropzone" data-status="done"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para cadastro de tarefa -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Cadastro de Tarefa</h2>
+            <form id="taskForm">
+                <label for="title">Título:</label>
+                <input type="text" id="title" required>
+
+                <label for="data-inicio">Data de Início da tarefa:</label>
+                <input type="date" id="data-inicio" required>
+
+                <label for="data-fim">Data de Término da tarefa:</label>
+                <input type="date" id="data-fim" required>
+
+                <label for="prioridade">Prioridade</label>
+                <select id="prioridade" prioridade="prioridade">
+                    <option value="">Selecione a Prioridade</option>
+                    <option value="alta">Alta</option>
+                    <option value="media">Média</option>
+                    <option value="baixa">Baixa</option>
+
+                <label for="description">Descrição:</label>
+                <textarea id="description" required></textarea>
+
+                <button type="submit">Salvar Tarefa</button>
+            </form>
+        </div>
+    </div>
+    <!-- Modal para Excluir Tarefa -->
+    <div class="modal" id="delete-task-modal">
+        <div class="modal-content">
+            <h2>Excluir Tarefa</h2>
+            <select id="delete-task-select">
+                <!-- Opções de tarefas serão carregadas via JS -->
+            </select>
+            <div class="modal-buttons">
+                <button class="save-btn" onclick="deleteTask()">Excluir</button>
+                <button class="cancel-btn" onclick="closeDeleteTaskModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
